@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
+import EpisodePage from './pages/EpisodePage';
+import HomePage from './pages/HomePage';
+import PodcastPage from './pages/PodcastPage';
+import Layout from './components/Layout';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/podcast/:podcastId" element={<PodcastPage />} />
+          <Route path="/podcast/episode/:episodeId" element={<EpisodePage />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
