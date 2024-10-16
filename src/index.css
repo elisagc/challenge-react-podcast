@@ -11,9 +11,24 @@ body {
   --primary-blue: #4e73c3;
   --medium-grey: #8c959d;
   --light-grey: #d3dee9;
+  --dark-grey: #474748;
+
+  --app-border-radius: 8px;
+  --app-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  --app-box-shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }
