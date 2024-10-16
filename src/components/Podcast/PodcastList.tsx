@@ -1,5 +1,5 @@
 import React from 'react';
-import { Podcast } from '../interfaces/podcast';
+import { Podcast } from '../../interfaces/podcast';
 import classes from './PodcastList.module.css';
 import { useNavigate } from 'react-router-dom';
 
