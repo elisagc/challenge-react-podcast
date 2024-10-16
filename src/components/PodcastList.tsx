@@ -12,7 +12,7 @@ const PodcastCard = ({ podcast }: { podcast: Podcast }) => {
   return (
     <div
       className={classes['podcast-card']}
-      onClick={() => navigate(`/podcast/${podcast.id}`)}
+      onClick={() => navigate(`/podcast/${podcast.id}`, { state: podcast })}
     >
       <div className={classes['podcast-card__image']}>
         <img src={podcast.image} alt={podcast.title} />

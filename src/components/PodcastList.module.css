@@ -1,14 +1,14 @@
 .podcast-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 5rem 2rem;
   padding-top: 4rem;
 }
 
 .podcast-card {
   position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
+  box-shadow: var(--app-box-shadow);
+  border-radius: var(--app-border-radius);
   display: flex;
   flex-direction: column;
   gap: 100px;
@@ -16,7 +16,7 @@
 }
 
 .podcast-card:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--app-box-shadow-hover);
 }
 
 .podcast-card__image > img {
