@@ -11,7 +11,10 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/podcast/:podcastId" element={<PodcastPage />} />
-          <Route path="/podcast/episode/:episodeId" element={<EpisodePage />} />
+          <Route
+            path="/podcast/:podcasId/episode/:episodeId"
+            element={<EpisodePage />}
+          />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
