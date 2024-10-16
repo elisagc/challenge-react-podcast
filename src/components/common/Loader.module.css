@@ -1,0 +1,13 @@
+.loader {
+  width: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--primary-blue);
+  box-shadow: 0 0 0 0 var(--primary-blue);
+  animation: l1 1s infinite;
+}
+@keyframes l1 {
+  100% {
+    box-shadow: 0 0 0 15px #0000;
+  }
+}
