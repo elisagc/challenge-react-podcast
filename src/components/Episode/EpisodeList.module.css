@@ -1,0 +1,39 @@
+.container {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.header {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 2px solid #eee;
+  font-weight: bold;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.row {
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.row:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.cell {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  color: #666;
+}
+
+.cell:first-child {
+  color: var(--primary-blue);
+}

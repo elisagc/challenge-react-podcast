@@ -1,0 +1,12 @@
+.container {
+  border-radius: 4px;
+  box-shadow: var(--app-box-shadow);
+  padding: 1rem;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
