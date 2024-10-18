@@ -1,21 +1,26 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { Podcast, PodcastEpisode } from '../interfaces/podcast';
-import PodcastDetailCard from '../components/Podcast/PodcastDetailCard';
+import PodcastDetailCard from '../components/podcast/PodcastDetailCard';
+import EpisodeCard from '../components/episode/EpisodeCard';
 import classes from './EpisodePage.module.css';
-import EpisodeCard from '../components/Episode/EpisodeCard';
+import usePodcast from '../hooks/usePodcast';
+import { useParams } from 'react-router-dom';
+import Error from '../components/layout/Error';
 const EpisodePage = () => {
-  const location = useLocation();
-  const { podcast, episode } = location.state as {
-    podcast: Podcast;
-    episode: PodcastEpisode;
-  };
+  let { podcastId, episodeId } = useParams();
+
+  const { podcast, podcastEpisode, errorFetching } = usePodcast(
+    podcastId,
+    episodeId
+  );
+
+  const isLoadedData = podcast && !!Object.keys(podcastEpisode).length;
+
+  if (errorFetching) return <Error />;
+  if (!isLoadedData) return null;
+
   return (
     <div className={classes['episode-page']}>
       <PodcastDetailCard podcast={podcast} />
-      <div className={classes['episode-page__episode']}>
-        <EpisodeCard episode={episode} />
-      </div>
+      <EpisodeCard episode={podcastEpisode} />
     </div>
   );
 };

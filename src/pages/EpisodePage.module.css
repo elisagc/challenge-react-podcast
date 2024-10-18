@@ -5,3 +5,10 @@
   gap: 100px;
   margin: 0 auto;
 }
+
+@media (width <= 425px) {
+  .episode-page {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
