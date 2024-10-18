@@ -46,7 +46,7 @@ const getPodcastEpisodesByIdWithAllOrigins = async (
         format: 'D/M/YYYY',
       }),
       duration: episode.trackTimeMillis
-        ? formatTime(episode.trackTimeMillis)
+        ? formatTime(episode.trackTimeMillis, true)
         : 'No available',
       episodeId: episode.trackId,
       episodeTrackUrl: episode.episodeUrl,
