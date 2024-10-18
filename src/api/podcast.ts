@@ -58,14 +58,7 @@ const getPodcastEpisodesById = async (
   id: string
 ): Promise<PodcastEpisode[]> => {
   const response = await fetch(
-    `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=20`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-    }
+    `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=20`
   );
   const data: PodcastEpisodesResponse = await response.json();
 
