@@ -1,5 +1,6 @@
-export const formatTimeFromMillis = (millis: number) => {
-  const totalSeconds = Math.floor(millis / 1000);
+export const formatTime = (time: number, isMillis: boolean = false) => {
+  const totalSeconds = isMillis ? Math.floor(time / 1000) : Math.floor(time);
+
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
@@ -12,15 +13,4 @@ export const formatTimeFromMillis = (millis: number) => {
   } else {
     return `${formattedMinutes}:${formattedSeconds}`;
   }
-};
-
-export const formatTime = (time: number) => {
-  if (time && !isNaN(time)) {
-    const minutes = Math.floor(time / 60);
-    const formatMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
-    const seconds = Math.floor(time % 60);
-    const formatSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-    return `${formatMinutes}:${formatSeconds}`;
-  }
-  return '00:00';
 };
