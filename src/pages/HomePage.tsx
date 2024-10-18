@@ -1,26 +1,27 @@
-import React, { useEffect } from 'react';
-import { getAllPodcasts } from '../api/podcast';
-import { Podcast } from '../interfaces/podcast';
-import PodcastList from '../components/PodcastList';
+import { ChangeEvent } from 'react';
+import PodcastList from '../components/podcast/PodcastList';
+import Search from '../components/common/Search';
+import classes from './HomePage.module.css';
+import usePodcast from '../hooks/usePodcast';
 
 const HomePage = () => {
-  const [podcasts, setPodcasts] = React.useState<Podcast[]>([]);
-  useEffect(() => {
-    const fetchPodcasts = async () => {
-      try {
-        setPodcasts(await getAllPodcasts());
-      } catch (error) {
-        console.error('Error fetching podcasts:', error);
-      }
-    };
+  const { filteredPodcasts, filterPodcasts } = usePodcast();
 
-    fetchPodcasts();
-  }, []);
+  const handleOnChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    filterPodcasts(event.target.value);
+  };
 
   return (
-    <div>
-      <div>Buscador</div>
-      <PodcastList podcasts={podcasts} />
+    <div className={classes['home-page']}>
+      <div className={classes['search-container']}>
+        <span className={classes.counter}>{filteredPodcasts.length}</span>
+        <Search
+          placeholder="Filter podcast..."
+          onChange={handleOnChangeSearch}
+        />
+      </div>
+
+      <PodcastList podcasts={filteredPodcasts} />
     </div>
   );
 };
