@@ -40,27 +40,3 @@ const EpisodeList: React.FC<EpisodeListProps> = ({ episodes, podcast }) => {
 };
 
 export default EpisodeList;
-{
-  /* <div className={classes.container}>
-      <div className={classes.tableWrapper}>
-        <table className={classes.table}>
-          <thead>
-            <tr className={classes.tableHeader}>
-              <th className={classes.tableHeaderCell}>Name</th>
-              <th className={classes.tableHeaderCell}>Email</th>
-              <th className={classes.tableHeaderCell}>Role</th>
-            </tr>
-          </thead>
-          <tbody>
-            {episodes.map((item) => (
-              <tr key={item.episodeId} className={classes.tableRow}>
-                <td className={classes.tableCell}>{item.title}</td>
-                <td className={classes.tableCell}>{item.date}</td>
-                <td className={classes.tableCell}>{item.duration}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div> */
-}
