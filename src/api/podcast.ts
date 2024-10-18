@@ -5,7 +5,7 @@ import {
   PodcastEpisodesResponse,
   PodcastResponse,
 } from '../interfaces/podcast';
-import { formatTimeFromMillis } from '../utils/format';
+import { formatTime } from '../utils/format';
 
 const getAllPodcasts = async (): Promise<Podcast[]> => {
   const response = await fetch(
@@ -24,7 +24,7 @@ const getAllPodcasts = async (): Promise<Podcast[]> => {
   });
 };
 
-const getPodcastEpisodesById = async (
+const getPodcastEpisodesByIdWithAllOrigins = async (
   id: string
 ): Promise<PodcastEpisode[]> => {
   const response = await fetch(
@@ -46,7 +46,7 @@ const getPodcastEpisodesById = async (
         format: 'D/M/YYYY',
       }),
       duration: episode.trackTimeMillis
-        ? formatTimeFromMillis(episode.trackTimeMillis)
+        ? formatTime(episode.trackTimeMillis)
         : 'No available',
       episodeId: episode.trackId,
       episodeTrackUrl: episode.episodeUrl,
@@ -54,7 +54,7 @@ const getPodcastEpisodesById = async (
     }));
 };
 
-const getPodcastEpisodesById2 = async (
+const getPodcastEpisodesById = async (
   id: string
 ): Promise<PodcastEpisode[]> => {
   const response = await fetch(
@@ -68,7 +68,7 @@ const getPodcastEpisodesById2 = async (
     }
   );
   const data: PodcastEpisodesResponse = await response.json();
-  console.log(data);
+
   return data.results
     .slice(1)
     .reverse()
@@ -79,11 +79,15 @@ const getPodcastEpisodesById2 = async (
         format: 'D/M/YYYY',
       }),
       duration: episode.trackTimeMillis
-        ? formatTimeFromMillis(episode.trackTimeMillis)
+        ? formatTime(episode.trackTimeMillis, true)
         : 'No available',
       episodeId: episode.trackId,
       episodeTrackUrl: episode.episodeUrl,
       episodeDescription: episode.description,
     }));
 };
-export { getAllPodcasts, getPodcastEpisodesById, getPodcastEpisodesById2 };
+export {
+  getAllPodcasts,
+  getPodcastEpisodesById,
+  getPodcastEpisodesByIdWithAllOrigins,
+};
