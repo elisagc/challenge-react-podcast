@@ -1,0 +1,21 @@
+.podcast-page {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 100px;
+  margin: 0 auto;
+}
+
+.podcast-page__episodes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (width <= 425px) {
+  .podcast-page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
