@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAllPodcasts, getPodcastEpisodesById } from '../api/podcast';
+import {
+  getAllPodcasts,
+  getPodcastEpisodesByIdWithAllOrigins,
+} from '../api/podcast';
 import { Podcast, PodcastEpisode } from '../interfaces/podcast';
 import { getStoredPodcasts, isDateStoredValid } from '../utils/storage';
 import { useLoading } from '../context/LoadingContext';
@@ -42,7 +45,7 @@ const usePodcast = (podcastId?: string, episodeId?: string) => {
 
     setLoading(true);
     try {
-      const episodes = await getPodcastEpisodesById(podcastId);
+      const episodes = await getPodcastEpisodesByIdWithAllOrigins(podcastId);
       await loadPodcastEpisodes(episodes);
     } catch (error) {
       handleError(error, 'Error fetching podcasts episodes:');
